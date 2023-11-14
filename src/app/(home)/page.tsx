@@ -2,6 +2,8 @@ import Image from "next/image";
 import Categories from "./components/Categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductList from "./components/ProductList";
+import SessionTitle from "./components/SectionTitle";
+import PromoBanner from "./components/PromoBanner";
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
@@ -12,16 +14,20 @@ export default async function Home() {
     },
   });
 
+  const keyboards = await prismaClient.product.findMany({
+    where: {
+      category: {
+        slug: "keyboards",
+      },
+    },
+  });
+
   return (
     <main>
       <div>
-        <Image
+        <PromoBanner
           src="/banner-home-01.png"
-          height={0}
-          width={0}
-          className="h-auto w-full px-5"
-          sizes="100vw"
-          alt="Até 55% de desconto esse mês"
+          alt="até 55% de desconto só esse mês"
         />
 
         <div className="mt-8 px-5">
@@ -29,19 +35,20 @@ export default async function Home() {
         </div>
 
         <div className="mt-8 p-0">
-          <p className="mb-3 ml-5 font-bold uppercase">Ofertas</p>
+          <SessionTitle>Ofertas</SessionTitle>
           <ProductList products={deals} />
         </div>
-      </div>
 
-      <Image
+        <PromoBanner
           src="/banner-home-02.png"
-          height={0}
-          width={0}
-          className="h-auto w-full px-5"
-          sizes="100vw"
-          alt="Até 55% de desconto em Mouses"
+          alt="até 55% de desconto em Mouses"
         />
+
+        <div className="mt-8 p-0">
+          <SessionTitle>Teclados</SessionTitle>
+          <ProductList products={keyboards} />
+        </div>
+      </div>
     </main>
   );
 }
