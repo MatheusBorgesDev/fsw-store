@@ -1,5 +1,3 @@
-// PARAMOS EM 1:16:20 da aula 2
-
 import { ProductWithTotalPrice } from "@/helpers/product";
 import Image from "next/image";
 import { Badge } from "./badge";
