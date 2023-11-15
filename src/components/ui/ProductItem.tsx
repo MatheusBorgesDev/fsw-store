@@ -42,7 +42,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
                 R$ {product.totalPrice.toFixed(2)}
               </p>
 
-              <p className="text-xs line-through opacity-75 overflow-hidden text-ellipsis whitespace-nowrap ">
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75 ">
                 R$ {Number(product.basePrice).toFixed(2)}
               </p>
             </>
