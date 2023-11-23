@@ -1,3 +1,5 @@
+// Paramos na Aula 2 02:08:28
+
 import { Badge } from "@/components/ui/badge";
 import { prismaClient } from "@/lib/prisma";
 import { ShapesIcon } from "lucide-react";
