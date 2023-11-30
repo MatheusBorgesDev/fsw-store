@@ -27,9 +27,9 @@ const ProductsDetailsPage = async ({
               },
             },
           },
-        }
-      }
-    }
+        },
+      },
+    },
   });
 
   if (!product) {
