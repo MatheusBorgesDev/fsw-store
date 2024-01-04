@@ -1,3 +1,5 @@
+// Aula 4 23:18
+
 "use client";
 
 import { ProductWithTotalPrice } from "@/helpers/product";
@@ -46,7 +48,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const total = useMemo(() => {
     return products.reduce((acc, product) => {
-      return acc + Number(product.totalPrice)* product.quantity;
+      return acc + Number(product.totalPrice) * product.quantity;
     }, 0);
   }, [products]);
 
