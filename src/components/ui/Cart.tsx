@@ -22,7 +22,7 @@ const Cart = () => {
       </Badge>
 
       <ScrollArea className="h-full">
-        <div className="bg-red flex h-full flex-col gap-5">
+        <div className="flex h-full flex-col gap-5">
           {products.length > 0 ? (
             products.map((product) => (
               <CartItem
@@ -38,7 +38,8 @@ const Cart = () => {
         </div>
       </ScrollArea>
 
-      <div className="flex flex-col gap-3">
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
         <Separator />
 
         <div className="flex items-center justify-between text-xs">
@@ -69,6 +70,7 @@ const Cart = () => {
 
         <Button className="font-bold uppercase mt-7">Finalizar compra</Button>
       </div>
+      )}
     </div>
   );
 };
