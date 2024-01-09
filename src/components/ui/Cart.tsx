@@ -1,3 +1,5 @@
+// Aula 4 51:55
+
 import { ShoppingCartIcon } from "lucide-react";
 import { Badge } from "./badge";
 import { CartContext } from "@/providers/cart";
@@ -16,7 +18,9 @@ const Cart = () => {
   const handleFinishPurchaseClick = async () => {
     const checkout = await createCheckout(products);
 
-    const stripe = await loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`);
+    const stripe = await loadStripe(
+      `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`,
+    );
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
