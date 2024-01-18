@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <Card className="flex items-center justify-between p-[1.875rem]">
+    <Card className="flex items-center justify-between p-[1.875rem] rounded-t-none">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline">
@@ -104,6 +104,18 @@ const Header = () => {
                 >
                   <HomeIcon size={16} />
                   Início
+                </Button>
+              </Link>
+            </SheetClose>
+
+            <SheetClose asChild>
+              <Link href="/orders">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <ListOrderedIcon size={16} />
+                  Meus pedidos
                 </Button>
               </Link>
             </SheetClose>
