@@ -1,5 +1,3 @@
-// Aula 4 51:55
-
 import { ShoppingCartIcon } from "lucide-react";
 import { Badge } from "./badge";
 import { CartContext } from "@/providers/cart";
