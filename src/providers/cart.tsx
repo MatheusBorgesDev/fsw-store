@@ -1,5 +1,3 @@
-// Aula 4 23:18
-
 "use client";
 
 import { ProductWithTotalPrice } from "@/helpers/product";
@@ -38,13 +36,20 @@ export const CartContext = createContext<ICartContext>({
 });
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
+
+  const isClient = typeof window !== 'undefined';
+
   const [products, setProducts] = useState<CartProduct[]>(
-    JSON.parse(localStorage.getItem("@fsw-store/cart-products") || "[]"),
+    isClient
+      ? JSON.parse(localStorage.getItem('@fsw-store/cart-products') || '[]')
+      : [],
   );
 
   useEffect(() => {
-    localStorage.setItem("@fsw-store/cart-products", JSON.stringify(products));
-  }, [products]);
+    if (isClient) {
+      localStorage.setItem('@fsw-store/cart-products', JSON.stringify(products));
+    }
+  }, [isClient, products]);
 
   const subtotal = useMemo(() => {
     return products.reduce((acc, product) => {
