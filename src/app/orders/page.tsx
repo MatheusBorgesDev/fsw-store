@@ -36,6 +36,12 @@ async function OrdersPage() {
       </Badge>
 
       <div className="flex flex-col gap-5">
+        {orders.length == 0 && (
+          <div className="flex text-center text-lg mt-4">
+            <p className="w-full">Ainda não há pedidos realizados</p>
+          </div>
+        )}
+
         {orders.map((order) => (
           <OrderItem key={order.id} order={order} />
         ))}
