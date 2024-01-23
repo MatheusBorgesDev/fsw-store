@@ -17,12 +17,16 @@ async function OrdersPage() {
       userId: (user as any).id,
     },
     include: {
-      orderProducts: true,
+      orderProducts: {
+        include: {
+          product: true,
+        },
+      },
     },
   });
 
   return (
-    <div className="p-5 flex flex-col gap-5">
+    <div className="flex flex-col gap-5 p-5">
       <Badge
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.365rem] text-base uppercase"
         variant="outline"
