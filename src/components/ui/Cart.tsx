@@ -11,6 +11,7 @@ import { createCheckout } from "@/actions/checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { createOrder } from "@/actions/order";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Cart = () => {
   const { data } = useSession();
@@ -91,13 +92,15 @@ const Cart = () => {
             <p>Total</p>
             <p>R$ {total.toFixed(2)}</p>
           </div>
-
-          <Button
-            className="mt-7 font-bold uppercase"
-            onClick={handleFinishPurchaseClick}
-          >
-            Finalizar compra
-          </Button>
+          
+          <Link href="/orders">
+            <Button
+              className="mt-7 font-bold uppercase w-full"
+              onClick={handleFinishPurchaseClick}
+            >
+              Finalizar compra
+            </Button>
+          </Link>
         </div>
       )}
     </div>
