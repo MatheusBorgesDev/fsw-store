@@ -10,6 +10,7 @@ import {
   LogOutIcon,
   PercentIcon,
   ListOrderedIcon,
+  PackageSearchIcon,
 } from "lucide-react";
 import {
   Sheet,
@@ -20,7 +21,6 @@ import {
 } from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import Image from "next/image";
 import { Separator } from "@radix-ui/react-separator";
 import Link from "next/dist/client/link";
 import Cart from "./Cart";
@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <Card className="flex items-center justify-between p-[1.875rem] rounded-t-none">
+    <Card className="flex items-center justify-between rounded-t-none p-[1.875rem]">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline">
@@ -114,7 +114,7 @@ const Header = () => {
                   variant="outline"
                   className="w-full justify-start gap-2"
                 >
-                  <ListOrderedIcon size={16} />
+                  <PackageSearchIcon size={16} />
                   Meus pedidos
                 </Button>
               </Link>
